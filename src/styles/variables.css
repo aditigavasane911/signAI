@@ -1,0 +1,244 @@
+/* SignBridge AI Centralized Design System */
+:root {
+  /* =========================================================================
+     Exact Brand Color Palette specified by User
+     ========================================================================= */
+  --color-navy: #0B2D5B;                 /* Primary brand and heading color */
+  --color-navy-dark: #082244;            /* Deeper emphasis and hover states */
+  --color-teal: #00C2A8;                 /* Main accent and primary action color */
+  --color-purple: #7B61FF;               /* Secondary accent for AI features and selected states */
+  --color-bg: #F5F8FF;                   /* Main page background */
+  
+  /* Text Colors */
+  --color-text-primary: #0B2D5B;         /* Primary text / Headings */
+  --color-text-secondary: #5A6675;       /* Secondary body text */
+  --color-text-muted: #8B95A5;           /* Muted / Caption text */
+  --color-text-white: #FFFFFF;           /* White text on dark/colored containers */
+
+  /* Navy Tints */
+  --color-navy-tint-1: #A7C7E7;
+  --color-navy-tint-2: #6A9BDD;
+  --color-navy-tint-3: #3B6FA5;
+
+  /* Teal Tints & Shade */
+  --color-teal-tint-1: #CCF6EB;
+  --color-teal-tint-2: #99EBDA;
+  --color-teal-tint-3: #66DEC9;
+  --color-teal-shade: #008A78;
+
+  /* Purple Tints & Shade */
+  --color-purple-tint-1: #EFE8FF;
+  --color-purple-tint-2: #D2C8FF;
+  --color-purple-tint-3: #B5A8FF;
+  --color-purple-shade: #5038C2;
+
+  /* Signature Gradient */
+  --gradient-signature: linear-gradient(105deg, #00C2A8 0%, #3B6FA5 50%, #7B61FF 100%);
+  --gradient-signature-hover: linear-gradient(105deg, #008A78 0%, #0B2D5B 50%, #5038C2 100%);
+  --gradient-subtle-glow: radial-gradient(circle at 50% 0%, rgba(0, 194, 168, 0.08) 0%, rgba(123, 97, 255, 0.05) 50%, transparent 80%);
+  --gradient-card-border: linear-gradient(135deg, rgba(106, 155, 221, 0.3) 0%, rgba(0, 194, 168, 0.2) 50%, rgba(123, 97, 255, 0.25) 100%);
+
+  /* Surface & Container Colors */
+  --color-surface-white: #FFFFFF;
+  --color-surface-card: #FFFFFF;
+  --color-surface-subtle: #EDF3FC;
+  --color-surface-muted: #E5EEF9;
+  --color-surface-dark: #0B2D5B;
+  --color-surface-dark-elevated: #0F366C;
+  --color-surface-studio-video: #071D3A;
+
+  /* Borders & Dividers */
+  --color-border-light: #DCE5F2;
+  --color-border-subtle: #E8EEF7;
+  --color-border-medium: #BDD0E7;
+  --color-border-focus: #00C2A8;
+  --color-border-purple: #D2C8FF;
+  --color-border-dark: #1A3E6F;
+
+  /* Status / Feedback Colors */
+  --color-status-success: #00C2A8;
+  --color-status-success-bg: #E6FBF7;
+  --color-status-success-border: #99EBDA;
+  --color-status-success-text: #008A78;
+  --color-status-warning: #E58A00;
+  --color-status-warning-bg: #FFF8E6;
+  --color-status-warning-border: #F5D38A;
+  --color-status-warning-text: #8A5200;
+  --color-status-warning-subtext: #5A3600;
+  --color-status-error: #E63946;
+  --color-status-error-bg: #FEECEE;
+  --color-status-error-border: #F8B4B9;
+  --color-status-error-text: #C52233;
+  --color-status-info: #3B6FA5;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(11, 45, 91, 0.04);
+  --shadow-sm: 0 2px 6px rgba(11, 45, 91, 0.06);
+  --shadow-md: 0 6px 18px rgba(11, 45, 91, 0.07), 0 1px 3px rgba(11, 45, 91, 0.04);
+  --shadow-lg: 0 14px 32px rgba(11, 45, 91, 0.09), 0 4px 10px rgba(11, 45, 91, 0.04);
+  --shadow-xl: 0 24px 48px rgba(11, 45, 91, 0.12), 0 8px 18px rgba(11, 45, 91, 0.06);
+  --shadow-signature: 0 8px 24px rgba(0, 194, 168, 0.25);
+  --shadow-purple: 0 8px 24px rgba(123, 97, 255, 0.22);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Transitions */
+  --color-navbar-bg: rgba(245, 248, 255, 0.94);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================================
+   Dark Theme Design Tokens
+   ========================================================================= */
+[data-theme="dark"],
+.dark {
+  /* Brand accents in dark theme */
+  --color-navy: #F0F4FA;                 /* Main heading / brand typography */
+  --color-navy-dark: #FFFFFF;            /* Full contrast white */
+  --color-teal: #00E5C5;                 /* High-luminance electric teal */
+  --color-purple: #9B86FF;               /* Electric purple */
+  --color-bg: #070D18;                   /* Obsidian space background */
+  
+  /* Text Colors */
+  --color-text-primary: #F0F4FA;         /* Crisp primary text */
+  --color-text-secondary: #9DB0C8;       /* Legible soft slate blue */
+  --color-text-muted: #687D9C;           /* Subtle metadata / captions */
+  --color-text-white: #FFFFFF;
+
+  /* Surfaces & Containers */
+  --color-surface-white: #0E1828;        /* Card surface */
+  --color-surface-card: #0E1828;         /* Card surface */
+  --color-surface-subtle: #142338;       /* Subtle dark container */
+  --color-surface-muted: #1B2D47;        /* Interactive container */
+  --color-surface-dark: #050A13;         /* Deep container */
+  --color-surface-dark-elevated: #111E33;/* Elevated card */
+  --color-surface-studio-video: #03060B; /* Video background */
+  --color-navbar-bg: rgba(7, 13, 24, 0.92);
+
+  /* Navy Tints */
+  --color-navy-tint-1: #1B2F4C;
+  --color-navy-tint-2: #345887;
+  --color-navy-tint-3: #5887C2;
+
+  /* Teal Tints */
+  --color-teal-tint-1: rgba(0, 229, 197, 0.12);
+  --color-teal-tint-2: rgba(0, 229, 197, 0.22);
+  --color-teal-tint-3: rgba(0, 229, 197, 0.35);
+  --color-teal-shade: #00F0CE;
+
+  /* Purple Tints */
+  --color-purple-tint-1: rgba(155, 134, 255, 0.12);
+  --color-purple-tint-2: rgba(155, 134, 255, 0.22);
+  --color-purple-tint-3: rgba(155, 134, 255, 0.35);
+  --color-purple-shade: #B7A6FF;
+
+  /* Borders & Dividers */
+  --color-border-light: rgba(157, 176, 200, 0.16);
+  --color-border-subtle: rgba(157, 176, 200, 0.10);
+  --color-border-medium: rgba(157, 176, 200, 0.25);
+  --color-border-focus: #00E5C5;
+  --color-border-purple: rgba(155, 134, 255, 0.35);
+  --color-border-dark: rgba(157, 176, 200, 0.20);
+
+  /* Status / Feedback Colors in Dark Theme */
+  --color-status-success: #00E5C5;
+  --color-status-success-bg: rgba(0, 229, 197, 0.14);
+  --color-status-success-border: rgba(0, 229, 197, 0.32);
+  --color-status-success-text: #00E5C5;
+  --color-status-warning: #FFB733;
+  --color-status-warning-bg: rgba(229, 138, 0, 0.16);
+  --color-status-warning-border: rgba(229, 138, 0, 0.38);
+  --color-status-warning-text: #FFD166;
+  --color-status-warning-subtext: #FFE5A3;
+  --color-status-error: #FF5C6C;
+  --color-status-error-bg: rgba(230, 57, 70, 0.18);
+  --color-status-error-border: rgba(230, 57, 70, 0.40);
+  --color-status-error-text: #FF8A93;
+  --color-status-info: #5887C2;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.55);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.65), 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 14px 32px rgba(0, 0, 0, 0.75), 0 4px 10px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.9);
+  --shadow-signature: 0 8px 26px rgba(0, 229, 197, 0.28);
+  --shadow-purple: 0 8px 26px rgba(155, 134, 255, 0.28);
+
+  /* Gradients */
+  --gradient-subtle-glow: radial-gradient(circle at 50% 0%, rgba(0, 229, 197, 0.14) 0%, rgba(155, 134, 255, 0.1) 50%, transparent 80%);
+  --gradient-card-border: linear-gradient(135deg, rgba(157, 176, 200, 0.2) 0%, rgba(0, 229, 197, 0.3) 50%, rgba(155, 134, 255, 0.3) 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-navy: #F0F4FA;
+    --color-navy-dark: #FFFFFF;
+    --color-teal: #00E5C5;
+    --color-purple: #9B86FF;
+    --color-bg: #070D18;
+    --color-text-primary: #F0F4FA;
+    --color-text-secondary: #9DB0C8;
+    --color-text-muted: #687D9C;
+    --color-surface-white: #0E1828;
+    --color-surface-card: #0E1828;
+    --color-surface-subtle: #142338;
+    --color-surface-muted: #1B2D47;
+    --color-surface-dark: #050A13;
+    --color-surface-dark-elevated: #111E33;
+    --color-surface-studio-video: #03060B;
+    --color-navbar-bg: rgba(7, 13, 24, 0.92);
+    --color-navy-tint-1: #1B2F4C;
+    --color-navy-tint-2: #345887;
+    --color-navy-tint-3: #5887C2;
+    --color-teal-tint-1: rgba(0, 229, 197, 0.12);
+    --color-teal-tint-2: rgba(0, 229, 197, 0.22);
+    --color-teal-tint-3: rgba(0, 229, 197, 0.35);
+    --color-teal-shade: #00F0CE;
+    --color-purple-tint-1: rgba(155, 134, 255, 0.12);
+    --color-purple-tint-2: rgba(155, 134, 255, 0.22);
+    --color-purple-tint-3: rgba(155, 134, 255, 0.35);
+    --color-purple-shade: #B7A6FF;
+    --color-border-light: rgba(157, 176, 200, 0.16);
+    --color-border-subtle: rgba(157, 176, 200, 0.10);
+    --color-border-medium: rgba(157, 176, 200, 0.25);
+    --color-border-focus: #00E5C5;
+    --color-border-purple: rgba(155, 134, 255, 0.35);
+    --color-border-dark: rgba(157, 176, 200, 0.20);
+    --color-status-success: #00E5C5;
+    --color-status-success-bg: rgba(0, 229, 197, 0.14);
+    --color-status-success-border: rgba(0, 229, 197, 0.32);
+    --color-status-success-text: #00E5C5;
+    --color-status-warning: #FFB733;
+    --color-status-warning-bg: rgba(229, 138, 0, 0.16);
+    --color-status-warning-border: rgba(229, 138, 0, 0.38);
+    --color-status-warning-text: #FFD166;
+    --color-status-warning-subtext: #FFE5A3;
+    --color-status-error: #FF5C6C;
+    --color-status-error-bg: rgba(230, 57, 70, 0.18);
+    --color-status-error-border: rgba(230, 57, 70, 0.40);
+    --color-status-error-text: #FF8A93;
+    --color-status-info: #5887C2;
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.45);
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.55);
+    --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.65), 0 1px 3px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 14px 32px rgba(0, 0, 0, 0.75), 0 4px 10px rgba(0, 0, 0, 0.45);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.9);
+    --shadow-signature: 0 8px 26px rgba(0, 229, 197, 0.28);
+    --shadow-purple: 0 8px 26px rgba(155, 134, 255, 0.28);
+    --gradient-subtle-glow: radial-gradient(circle at 50% 0%, rgba(0, 229, 197, 0.14) 0%, rgba(155, 134, 255, 0.1) 50%, transparent 80%);
+    --gradient-card-border: linear-gradient(135deg, rgba(157, 176, 200, 0.2) 0%, rgba(0, 229, 197, 0.3) 50%, rgba(155, 134, 255, 0.3) 100%);
+  }
+}
