@@ -1,4 +1,12 @@
 {
-  "extends": "./frontend/tsconfig.app.json",
-  "include": ["frontend/src"]
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./frontend/tsconfig.app.json"
+    }
+  ]
 }

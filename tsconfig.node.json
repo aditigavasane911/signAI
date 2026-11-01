@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./frontend/tsconfig.node.json"
+    }
+  ]
+}
