@@ -11,15 +11,27 @@ import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
-DATASET_DIR = "ISL_Dataset"
-OUTPUT_JSON = "src/data/isl_model.json"
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = BASE_DIR.parent
+
+DATASET_DIR = BASE_DIR / "datasets" / "ISL_Dataset"
+if not DATASET_DIR.exists():
+    DATASET_DIR = ROOT_DIR / "ISL_Dataset"
+
+OUTPUT_BACKEND_JSON = BASE_DIR / "app" / "data" / "isl_model.json"
+OUTPUT_FRONTEND_JSON = ROOT_DIR / "frontend" / "src" / "data" / "isl_model.json"
+TASK_PATH = BASE_DIR / "scripts" / "hand_landmarker.task"
+if not TASK_PATH.exists():
+    TASK_PATH = BASE_DIR / "app" / "data" / "hand_landmarker.task"
 
 print(f"Loading dataset from: {DATASET_DIR}")
 classes = sorted([d for d in os.listdir(DATASET_DIR) if os.path.isdir(os.path.join(DATASET_DIR, d))])
 print(f"Classes ({len(classes)}): {classes}")
 
 # Setup MediaPipe Hand Landmarker
-base_options = python.BaseOptions(model_asset_path="hand_landmarker.task")
+base_options = python.BaseOptions(model_asset_path=str(TASK_PATH))
 options = vision.HandLandmarkerOptions(
     base_options=base_options,
     num_hands=2,
@@ -103,8 +115,12 @@ output_data = {
     "trained_timestamp": "2026-10-28"
 }
 
-os.makedirs("src/data", exist_ok=True)
-with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
+OUTPUT_BACKEND_JSON.parent.mkdir(parents=True, exist_ok=True)
+with open(OUTPUT_BACKEND_JSON, "w", encoding="utf-8") as f:
     json.dump(output_data, f, indent=2)
 
-print(f"Successfully trained and saved model data to {OUTPUT_JSON}!")
+if OUTPUT_FRONTEND_JSON.parent.exists():
+    with open(OUTPUT_FRONTEND_JSON, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, indent=2)
+
+print(f"Successfully trained and saved model data to {OUTPUT_BACKEND_JSON}!")

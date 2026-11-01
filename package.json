@@ -1,27 +1,24 @@
 {
-  "name": "signai",
+  "name": "signai-workspace",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "description": "SignAI - Real-Time Indian Sign Language & Phrase Translation Platform",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "lint:frontend": "npm --prefix frontend run lint",
+    "dev:backend": "py -m uvicorn main:app --app-dir backend --reload --port 8000",
+    "dev:backend:python": "python -m uvicorn main:app --app-dir backend --reload --port 8000",
+    "train:isl": "py backend/scripts/train_isl_model.py",
+    "train:phrases": "py backend/scripts/train_phrases_model.py"
   },
-  "dependencies": {
-    "lucide-react": "^1.63.0",
-    "react": "^19.3.1",
-    "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.5"
-  },
-  "devDependencies": {
-    "@types/node": "^24.19.2",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.2",
-    "oxlint": "^1.89.0",
-    "typescript": "~7.0.2",
-    "vite": "^8.3.5"
-  }
+  "keywords": [
+    "sign-language",
+    "mediapipe",
+    "computer-vision",
+    "fastapi",
+    "react",
+    "vite",
+    "isl"
+  ]
 }
