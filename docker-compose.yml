@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  # Local PostgreSQL Database service (optional alternative to hosted Supabase PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: signai
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/database/schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # FastAPI Machine Learning & REST API Service
   backend:
     build:
       context: ./backend
@@ -11,10 +26,14 @@ services:
       - PORT=8000
       - HOST=0.0.0.0
       - DEBUG=true
+      - DATABASE_URL=postgresql://postgres:password@db:5432/signai
       - CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://localhost:80
     volumes:
       - ./backend/app:/app/app
+    depends_on:
+      - db
 
+  # React 19 + TypeScript Frontend
   frontend:
     build:
       context: ./frontend
@@ -23,3 +42,6 @@ services:
       - "3000:80"
     depends_on:
       - backend
+
+volumes:
+  pgdata:

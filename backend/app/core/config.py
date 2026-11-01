@@ -19,9 +19,20 @@ class Settings(BaseSettings):
     # CORS
     CORS_ORIGINS: str = "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://127.0.0.1:3000"
 
+    # Database & Supabase Configuration
+    DATABASE_URL: str = ""
+    SUPABASE_URL: str = ""
+    SUPABASE_KEY: str = ""
+    SUPABASE_ANON_KEY: str = ""
+    SUPABASE_SERVICE_ROLE_KEY: str = ""
+    SUPABASE_PUBLISHABLE_KEY: str = ""
+    SUPABASE_JWT_SECRET: str = ""
+
+
     # Inference & Model defaults
     CONFIDENCE_THRESHOLD: float = 0.70
     FEATURE_DIM: int = 63
+
     
     # Paths
     DATA_DIR: Path = DATA_DIR_DEFAULT
